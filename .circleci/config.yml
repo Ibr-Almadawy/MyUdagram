@@ -1,41 +1,44 @@
 version: 2.1
-orbs:
-  node: circleci/node@4.1.0
+orbs:  # Define our 3 main orbs 
+  node: circleci/node@4.1.0 
   aws-cli: circleci/aws-cli@1.3.1 
   aws-eb-cli: circleci/aws-elastic-beanstalk@2.0.1
-jobs:
-  build:
-    docker:
-      - image: "cimg/base:stable"
+jobs:   # Start tto declare jobs
+  build:  # main job
+    docker:   # Docker image
+      - image: "cimg/base:stable" 
     steps:
       - node/install:
-           node-version: "16.13"
+           node-version: "16.13" # Install a specific version to  avoid build errors
       - checkout
-      - aws-cli/setup
-      - aws-eb-cli/setup
+      - aws-cli/setup # Setup aws cli to deploy to S3 (front-end code)
+      - aws-eb-cli/setup  # Setup aws elastic beanstalk cli to deploy back-end 
       - run:
-          name: Front-end Install
+          name: Front-end Install # Get all dependencies and devdependencies installed for the front-end
           command: |
             npm run front:install 
       - run:
-          name: Back-end Install
+          name: Back-end Install  # Get all dependencies and devdependencies installed for the back-end
           command: |
-            npm run back:install
-      - run:
-          name: Front-end Build
           command: |
-            npm run front:build
+            npm run back:install 
       - run:
-          name: Back-end Build
+          name: Front-end Build  # Start build code for Angular front-end
           command: |
-            npm run back:build
+            npm run front:build 
       - run:
-          name: Deploy Front-end
+          name: Back-end  # Start build code for back-end
+          command: |
+            npm run back:build 
+      - run:
+          name: Deploy Front-end  # Deploying the front-end built code to S3 bucket
           command: |
             npm run front:deploy
       - run:
-          name: Deploy back-end
+          name: Deploy back-end # Deploying the back-end built code to Eb enviroment
           command: |
             npm run back:deploy
+
+# End off the pipeline process
 
 
