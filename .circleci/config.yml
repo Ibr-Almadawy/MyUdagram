@@ -5,9 +5,6 @@ orbs:  # Define our 3 main orbs
   aws-eb-cli: circleci/aws-elastic-beanstalk@2.0.1
 jobs:   # Start tto declare jobs
   build:  # main job
-    branches:
-     only:   # Set triggered branches
-      - main 
     docker:   # Docker image
       - image: "cimg/base:stable" 
     steps:
@@ -40,7 +37,14 @@ jobs:   # Start tto declare jobs
           name: Deploy back-end # Deploying the back-end built code to Eb enviroment
           command: |
             npm run back:deploy
-
+  workflows:
+   version: 2
+   build-deploy:
+    jobs:
+      - build:
+          filters:
+            branches: # Set filter to trigger for changes in main branch.
+              only: main 
 # End off the pipeline process
 
 
