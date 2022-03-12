@@ -1,4 +1,4 @@
-version: 2.0
+version: 2.1
 orbs:  # Define our 3 main orbs 
   node: circleci/node@4.1.0 
   aws-cli: circleci/aws-cli@1.3.1 
@@ -37,12 +37,12 @@ jobs:   # Start tto declare jobs
           name: Deploy back-end # Deploying the back-end built code to Eb enviroment
           command: |
             npm run back:deploy
-  workflows:
-   build-deploy:
+workflows:
+  build-deploy:
     jobs:
       - build:
           filters:
-            branches: # Set filter to trigger for changes in main branch.
+            branches:
               only: 
                - main 
 # End off the pipeline process
