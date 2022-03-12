@@ -20,7 +20,6 @@ jobs:   # Start tto declare jobs
       - run:
           name: Back-end Install  # Get all dependencies and devdependencies installed for the back-end
           command: |
-          command: |
             npm run back:install 
       - run:
           name: Front-end Build  # Start build code for Angular front-end
