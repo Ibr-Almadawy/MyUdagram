@@ -5,6 +5,9 @@ orbs:  # Define our 3 main orbs
   aws-eb-cli: circleci/aws-elastic-beanstalk@2.0.1
 jobs:   # Start tto declare jobs
   build:  # main job
+    branches:
+     only:   # Set triggered branches
+      - main 
     docker:   # Docker image
       - image: "cimg/base:stable" 
     steps:
