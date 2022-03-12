@@ -26,15 +26,15 @@ jobs:   # Start tto declare jobs
           command: |
             npm run front:build 
       - run:
-          name: Back-end  # Start build code for back-end
+          name: Back-end Build # Start build code for back-end
           command: |
             npm run back:build 
       - run:
-          name: Deploy Front-end  # Deploying the front-end built code to S3 bucket
+          name: Front-end Deploy  # Deploying the front-end built code to S3 bucket
           command: |
             npm run front:deploy
       - run:
-          name: Deploy back-end # Deploying the back-end built code to Eb enviroment
+          name: back-end Deploy # Deploying the back-end built code to Eb enviroment
           command: |
             npm run back:deploy
 workflows:

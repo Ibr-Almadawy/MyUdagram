@@ -21,30 +21,22 @@ This project created using an infrastructure of:
      + Posrbird shows connecting and saving data successfully.
 
 ### 2. AWS ElasticBeanstalk: ***(udagram-env-1)***
-  I created elastic beanstalk enviroment with this options:
+  I created elastic beanstalk environment with this options:
    * Setting to ***Web server***.
    * Setting application name to ***Udagram***.
-   * Setting enviroment name as above.
+   * Setting environment name as above.
    * Setting platform to ***nodejs***.
    * upload my back-end compiled code inside "www" directory which was build compressed in *zip* format.
-   * Setting all enviroment variables inside configuration inside software section:
-      + POSTGRES_HOST
-      + POSTGRES_DB
-      + POSTGRES_USERNAME
-      + POSTGRES_PASSWORD
-      + POSTGRES_PORT
-      + PORT
-      + URL
-      + JWT_SECRET
+   * No environment variables added manually in the EB environment.
       (as shown in screenshots).
-   * After a while enviroment gives status of ***ok***.
+   * After a while environment gives status of ***ok***.
    * Sreenshots avaiable inside screenshots folder in the root level shows:
-      + Start creating EB enviroment.
-      + Setting enviroment variables in EB.
-      + EB enviroment created with health status **ok**.
+      + Start creating EB environment.
+      + No environment variables in EB.
+      + EB environment created with health status **ok**.
 
 ### 3. AWS S3  ***(udagram20030200)***
-   * Start by setting the elastic beanstalk url to the url for the front-endresponse inside *enviroment.ts* in the local root of front-end folder.
+   * Start by setting the elastic beanstalk url to the url for the front-endresponse inside *environment.ts* in the local root of front-end folder.
    * create a new bucket and set the above name for it.
    * Allow all public access.
    * Set the bucket policy in premission as:
