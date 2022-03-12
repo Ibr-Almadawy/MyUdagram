@@ -1,0 +1,18 @@
+{
+  "scripts": {
+    "front:install": "cd udagram-frontend && npm install",
+    "back:install": "cd udagram-api && npm install",
+    "front:build": "cd udagram-frontend && npm run build",
+    "back:build": "cd udagram-api && npm run build",
+    "front:test": "cd udagram-frontend && npm run test",
+    "front:e2e": "cd udagram-frontend && npm run e2e",
+    "front:deploy": "cd udagram-frontend && npm run deploy",
+    "back:deploy": "cd udagram-api && npm run deploy"
+  },
+  "name": "udagram",
+  "description": "Udagram project level",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC"
+}
