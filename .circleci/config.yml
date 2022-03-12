@@ -38,13 +38,13 @@ jobs:   # Start tto declare jobs
           command: |
             npm run back:deploy
   workflows:
-   version: 2
    build-deploy:
     jobs:
       - build:
           filters:
             branches: # Set filter to trigger for changes in main branch.
-              only: main 
+              only: 
+               - main 
 # End off the pipeline process
 
 
